@@ -1,6 +1,13 @@
-<h1>Editing post</h1>
-
+<h2>Editing post </h2>
+<div class="row">
+  <div class='col-md-12'>
+    <p style='text-align:right;'>
+      created by <%= current_user.email %>, <%= time_ago_in_words(@post.created_at) %> ago
+    </p>
+  </div>
+</div>
 <%= render 'form' %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<hr>
+<%= link_to 'Show', @post, class: 'btn btn-default' %>
+<%= link_to 'Back', posts_path, class: 'btn btn-default' %>

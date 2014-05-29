@@ -1,13 +1,12 @@
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.association :user %>
+  <div class="form-group">
+    <%= f.input :title, input_html: { class: 'form-control' } %>
   </div>
+  <div class="form-group">
+    <%= f.input :content, input_html: { class: 'form-control', rows: 15 } %>
+  </div>
+  <%= f.button :submit, class: 'btn btn-default'%>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>
