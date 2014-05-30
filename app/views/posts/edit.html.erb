@@ -2,7 +2,7 @@
 <div class="row">
   <div class='col-md-12'>
     <p style='text-align:right;'>
-      created by <%= current_user.email %>, <%= time_ago_in_words(@post.created_at) %> ago
+      created by <%= user_email(@post) %>, <%= time_ago_in_words(@post.created_at) %> ago
     </p>
   </div>
 </div>

@@ -13,4 +13,20 @@ module ApplicationHelper
         flash_type.to_s
     end
   end
+
+  def icon(shape)
+    "<span class='glyphicon glyphicon-#{shape}'></span>".html_safe
+  end
+
+  def active_menu(target_controller)
+    "class=#{controller_name == target_controller ? 'active' : ''}"
+  end
+
+  def user_email(post)
+    post.user.present? ? post.user.email : "an anonymous user"
+  end
+
+  def user_roles(user)
+    user.roles.map(&:name).join(', ').titleize
+  end
 end
