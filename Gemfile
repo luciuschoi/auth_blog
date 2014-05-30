@@ -53,3 +53,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# for Heroku deployment
+ruby '2.1.2'
