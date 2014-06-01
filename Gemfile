@@ -5,6 +5,10 @@ gem 'devise'
 gem 'rolify'
 gem 'authority'
 
+# OmniAuth strategies for Devise
+gem 'omniauth-facebook'
+
+
 # 페이지 뷰를 깔끔하게 보이도록 하기 위해서 아래의 두 젬을 추가로 설치한다.
 gem 'bootstrap-sass'
 gem 'simple_form'
