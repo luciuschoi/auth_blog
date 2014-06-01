@@ -27,15 +27,26 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= image_tag current_usr.image if current_user.image
+                  <%= current_user.name %>
+                  <b class="caret"></b>
+                </a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "My Profile", edit_user_registration_path %></li>
                   <li><%= link_to "Roles : " + user_roles(current_user), '#' %></li>
-                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
                 </ul>
               </li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
             <% else %>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in
+                 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "with Auth Blog", new_user_session_path %></li>
+                  <li><%= link_to "with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                </ul>
+              </li>
               <li><%= link_to "Sign up", new_user_registration_path %></li>
             <% end %>
           </ul>
