@@ -16,8 +16,10 @@
         <td><%= post.user.present? ? post.user.email : "n/a" %>, <%= time_ago_in_words(post.created_at) %> ago</td>
         <td>
           <%= link_to icon('eye-open'), post %>&nbsp;
-          <%= link_to icon('edit'), edit_post_path(post) if post.updatable_by? current_user %>&nbsp;
-          <%= link_to icon('trash'), post, method: :delete, data: { confirm: 'Are you sure?' } if post.deletable_by? current_user %>
+          <% if user_signed_in? %>
+            <%= link_to icon('edit'), edit_post_path(post) if post.updatable_by? current_user %>&nbsp;
+            <%= link_to icon('trash'), post, method: :delete, data: { confirm: 'Are you sure?' } if post.deletable_by? current_user %>
+          <% end %>
         </td>
       </tr>
     <% end %>
